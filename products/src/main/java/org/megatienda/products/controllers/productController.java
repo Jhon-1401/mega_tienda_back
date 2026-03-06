@@ -1,4 +1,4 @@
 package org.megatienda.products.controllers;
 
-public class productController {
+public class productController  {
 }
