@@ -6,17 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="modelss" />
         <module name="cart" />
+        <module name="products" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="17" />
+      <module name="models" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cart" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="models" options="-parameters" />
+      <module name="modelss" options="-parameters" />
       <module name="products" options="-parameters" />
     </option>
   </component>

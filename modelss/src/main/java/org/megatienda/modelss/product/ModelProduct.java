@@ -1,5 +1,6 @@
+package org.megatienda.modelss.product;
 
-public class product {
+public class ModelProduct {
     private String id;
     private String name;
     private String description;
@@ -9,12 +10,16 @@ public class product {
     private Integer stock;
     private String imageUrl;
     private Double rating;
+    private String currency;
 
-    //constructor vacío
-    public product() {}
+    // Constructor vacío
+    public ModelProduct() {
+    }
 
-    //constructor con parametros
-    public product(String id, String name, String description, Double price, String category, String brand, Integer stock) {
+    // Constructor con parámetros
+    public ModelProduct(String id, String name, String description, Double price,
+                   String category, String brand, Integer stock,
+                   String imageUrl, Double rating, String currency) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -22,10 +27,12 @@ public class product {
         this.category = category;
         this.brand = brand;
         this.stock = stock;
-        this.imageUrl = "";
-        this.rating = 0.0;
+        this.imageUrl = imageUrl;
+        this.rating = rating;
+        this.currency = currency;
     }
 
+    // Getters y Setters
     public String getId() {
         return id;
     }
@@ -97,4 +104,18 @@ public class product {
     public void setRating(Double rating) {
         this.rating = rating;
     }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+
+    public String getCurrency() {
+        return currency;
+    }
+
+
+    public void setActive(boolean b) {
+    }
+
 }
