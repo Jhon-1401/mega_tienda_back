@@ -8,26 +8,37 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ProductService {
+
     private final ObjectMapper mapper = new ObjectMapper();
-    private final File file;
+    private List<ModelProduct> products = new ArrayList<>();
 
+    // Constructor: carga productos.json desde resources
     public ProductService() throws IOException {
-        // Carga el archivo desde resources
-        this.file = new ClassPathResource("products.json").getFile();
+        ClassPathResource resource = new ClassPathResource("products.json");
+        try (InputStream inputStream = resource.getInputStream()) {
+            this.products = mapper.readValue(inputStream, new TypeReference<List<ModelProduct>>() {});
+        }
     }
 
-    public List<ModelProduct> getAllProducts() throws IOException {
-        if (!file.exists()) return new ArrayList<>();
-        return mapper.readValue(file, new TypeReference<List<ModelProduct>>() {});
+    // Devuelve todos los productos cargados
+    public List<ModelProduct> getAllProducts() {
+        return new ArrayList<>(products);
     }
 
+    // Guarda los productos en memoria y opcionalmente en archivo externo
     public void saveProducts(List<ModelProduct> products) throws IOException {
-        mapper.writeValue(file, products);
+        this.products = new ArrayList<>(products);
+
+        // Si quieres persistir en un archivo físico fuera del jar:
+        // mapper.writeValue(new File("/app/products.json"), products);
+        // (montado como volumen en Docker)
     }
+
 }
 

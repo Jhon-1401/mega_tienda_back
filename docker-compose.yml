@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  cart:
+    build: ./cart
+    container_name: cart-service
+    ports:
+      - "8383:8383"
+
+  products:
+    build: ./products
+    container_name: products-service
+    ports:
+      - "8484:8484"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-balancer
+    ports:
+      - "9090:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - cart
+      - products

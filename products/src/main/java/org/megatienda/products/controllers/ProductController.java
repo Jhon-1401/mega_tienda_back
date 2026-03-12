@@ -60,7 +60,7 @@ public class ProductController {
     }
 
     // Buscar productos
-    @GetMapping
+    @GetMapping ("/all")
     public List<ModelProduct> getProducts() throws IOException {
         return service.getAllProducts();
     }
