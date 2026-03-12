@@ -22,7 +22,7 @@
         <!-- Dependencia hacia el módulo models -->
         <dependency>
             <groupId>org.megatienda</groupId>
-            <artifactId>modelss</artifactId>
+            <artifactId>models</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -41,6 +41,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.megatienda</groupId>
+            <artifactId>models</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
