@@ -23,6 +23,7 @@ public class ProductController {
         List<ModelProduct> products = service.getAllProducts();
         product.setId(String.valueOf((long) (products.size() + 1)));
         product.setActive(true);
+        product.setEnabled(true);
         products.add(product);
         service.saveProducts(products);
         return "Producto agregado";
@@ -33,7 +34,7 @@ public class ProductController {
     public String updateProduct(@PathVariable Long id, @RequestBody ModelProduct updated) throws IOException {
         List<ModelProduct> products = service.getAllProducts();
         for (ModelProduct p : products) {
-            if (p.getId().equals(id)) {
+            if (p.getId().equals(id.toString())) {
                 p.setName(updated.getName());
                 p.setPrice(updated.getPrice());
                 service.saveProducts(products);
@@ -48,8 +49,9 @@ public class ProductController {
     public String disableProduct(@PathVariable Long id) throws IOException {
         List<ModelProduct> products = service.getAllProducts();
         for (ModelProduct p : products) {
-            if (p.getId().equals(id)) {
+            if (p.getId().equals(id.toString())) {
                 p.setActive(false);
+                p.setEnabled(false);
                 service.saveProducts(products);
                 return "Producto inhabilitado";
             }

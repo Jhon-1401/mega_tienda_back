@@ -11,6 +11,7 @@ public class ModelProduct {
     private String imageUrl;
     private Double rating;
     private String currency;
+    private Boolean enabled;
 
     // Constructor vacío
     public ModelProduct() {
@@ -19,7 +20,7 @@ public class ModelProduct {
     // Constructor con parámetros
     public ModelProduct(String id, String name, String description, Double price,
                    String category, String brand, Integer stock,
-                   String imageUrl, Double rating, String currency) {
+                   String imageUrl, Double rating, String currency, Boolean enabled) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -30,6 +31,7 @@ public class ModelProduct {
         this.imageUrl = imageUrl;
         this.rating = rating;
         this.currency = currency;
+        this.enabled = false;
     }
 
     // Getters y Setters
@@ -109,11 +111,17 @@ public class ModelProduct {
         this.currency = currency;
     }
 
-
     public String getCurrency() {
         return currency;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public void setActive(boolean b) {
     }
