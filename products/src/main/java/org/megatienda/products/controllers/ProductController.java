@@ -18,7 +18,7 @@ public class ProductController {
     }
 
     // Agregar producto
-    @PostMapping
+    @PostMapping("/add")
     public String addProduct(@RequestBody ModelProduct product) throws IOException {
         List<ModelProduct> products = service.getAllProducts();
         product.setId(String.valueOf((long) (products.size() + 1)));
