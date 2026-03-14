@@ -13,6 +13,7 @@
         <module>modelss</module>
         <module>products</module>
         <module>cart</module>
+        <module>config</module>
     </modules>
 
     <parent>

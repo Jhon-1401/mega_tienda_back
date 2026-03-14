@@ -1,5 +1,10 @@
 version: "3.9"
 services:
+  security:
+    build: ./config
+    container_name: security-service
+    ports:
+      - "8686:8686"
   cart:
     build: ./cart
     container_name: cart-service
