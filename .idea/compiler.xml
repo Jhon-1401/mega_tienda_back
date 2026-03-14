@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="modelss" />
         <module name="models" />
+        <module name="config" />
         <module name="cart" />
         <module name="products" />
       </profile>
@@ -19,6 +20,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cart" options="-parameters" />
+      <module name="config" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="models" options="-parameters" />
       <module name="modelss" options="-parameters" />
