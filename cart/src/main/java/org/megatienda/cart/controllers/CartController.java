@@ -20,7 +20,7 @@ public class CartController {
 
 // obtener productos del carrito 
 
-    @GetMapping
+    @GetMapping("/enable")
     public List<CartItem> getCart(){
         return cartService.getCart();
     }
