@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -43,6 +44,23 @@ public class ProductController {
         }
         return "Producto no encontrado";
     }
+
+    // Obtener productos 
+
+    @GetMapping("/{id}")
+public ModelProduct getProductById(@PathVariable String id) throws IOException {
+
+    List<ModelProduct> products = service.getAllProducts();
+
+    for (ModelProduct p : products) {
+        if (p.getId().equals(id)) {
+            return p;
+        }
+    }
+
+    return null;
+}
+    
 
     // Inhabilitar producto
     @DeleteMapping("/{id}")
